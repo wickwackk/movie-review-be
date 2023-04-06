@@ -4,7 +4,7 @@ import Movie from "../model/Movie";
 export async function getMovies(limit: number) {
   return await Movie.find({ poster: { $exists: true } })
     .limit(limit)
-    .select({ title: 1, _id: 1, poster: 1, tomatoes: 1 })
+    .select({ title: 1, _id: 1, poster: 1, tomatoes: 1, year: 1 })
     .then((movies) => {
       return movies;
     })
